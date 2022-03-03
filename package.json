@@ -1,0 +1,12 @@
+{
+  "type":"module",
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "몇회 연산이 1초걸리는거야?",
+  "main": "module1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
