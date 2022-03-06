@@ -13,9 +13,16 @@ import 순서
 상대 경로는 `ImportError: attempted relative import with no known parent package` err발생, 상위폴더의 경우 __main__을 기준으로 위치를 잡아서 실제 폴더구조를 근거하지 않는다고 함 그래서 경로로 import 불가  
 
 ---
-## 삼항연산자
+### 삼항연산자
 on_true if 조건 else on_false  
 
 python 삼항연산자에서 변수 재할당안된다.  
 `++, --` 같은 증감연산자도 없어서 `+=` 로 보통 재할당하는 걸 못쓴다.  
-파이썬 삼항연산자는 동작 수행보다 반환값을 제공하는 용도로만 쓰는 듯 하다.
+파이썬 삼항연산자는 동작 수행보다 반환값을 제공하는 용도로만 쓰는 듯 하다.  
+
+### tuple 
+특징: 내부 값이 변하지 않는다.  
+
+### list method  
+`list.index(찾는 값) :` list에서 찾고자 하는 값과 일치하는 첫번째 index값 반환, 없으면 ValueError  
+`list.count(찾는 값) :` list에서 찾고자 하는 값의 개수를 반환, 없으면 0반환
