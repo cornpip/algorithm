@@ -23,6 +23,60 @@ python 삼항연산자에서 변수 재할당안된다.
 ### tuple 
 특징: 내부 값이 변하지 않는다.  
 
+### Dictionary
+for문
+```
+a = {'alice': [1, 2, 3], 'bob': 20, 'tony': 15, 'suzy': 30}
+
+for key in a:
+    print(key)
+    # 출력: alice, bob, tony, suzy
+
+for val in a.values():
+    print(val)
+    # 출력: [1,2,3], 20, 15, 30
+
+for key, val in a.items():
+    print(key,value)
+    # 키와 값 모두 사용가능
+```
+
 ### list method  
 `list.index(찾는 값) :` list에서 찾고자 하는 값과 일치하는 첫번째 index값 반환, 없으면 ValueError  
-`list.count(찾는 값) :` list에서 찾고자 하는 값의 개수를 반환, 없으면 0반환
+`list.count(찾는 값) :` list에서 찾고자 하는 값의 개수를 반환, 없으면 0반환  
+
+---
+`if문` 이나 `for문`은 또다른 스코프를 형성하는게 아니라 그냥 해당스코프에서의 동작이다.  
+
+### Comprehension  
+한 Sequence가 다른 Sequence (Iterable Object)로부터 (변형되어) 구축될 수 있게한 기능이다.  
++ List Comprehension
+```
+# [출력표현식 for 요소 in 입력Sequence [if 조건식]]
+
+oldlist = [1, 2, 'A', False, 3] 
+newlist = [i*i for i in oldlist if type(i)==int]
+
+print(newlist)
+# 출력: [1, 4, 9]
+```
++ Set Comprehension
+```
+# {출력표현식 for 요소 in 입력Sequence [if 조건식]}
+
+oldlist = [1, 1, 2, 3, 3, 4]
+newlist = {i*i for i in oldlist}
+ 
+print(newlist)
+# 출력 : {16, 1, 9, 4}
+```
++ Dictionary Comprehension
+```
+# {Key:Value for 요소 in 입력Sequence [if 조건식]}
+
+id_name = {1: '박진수', 2: '강만진', 3: '홍수정'}
+name_id = {val:key for key,val in id_name.items()}
+
+print(name_id)
+# 출력 : {'박진수': 1, '강만진': 2, '홍수정': 3}
+```
