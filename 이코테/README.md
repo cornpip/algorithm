@@ -79,4 +79,15 @@ name_id = {val:key for key,val in id_name.items()}
 
 print(name_id)
 # 출력 : {'박진수': 1, '강만진': 2, '홍수정': 3}
+```  
+
+---
+### 주의  
 ```
+while ~:
+    for i in ~:
+        ...
+        continue 
+        ...
+```
+continue는 바로 위의 루프로 돌아간다. _( 위의 예시에서 for로 돌아가 진행한다. )_
