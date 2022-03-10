@@ -91,6 +91,29 @@ name_id = {val:key for key,val in id_name.items()}
 print(name_id)
 # 출력 : {'박진수': 1, '강만진': 2, '홍수정': 3}
 ```  
+### sorted(sort)  
+sort()와 sorted()는 모두 정렬하기 전에 각 리스트 요소에 대해 호출할 함수를 지정하는 key 매개 변수를 가지고 있다.    
+예시:
+```
+students = [
+    ('john', 'A', 15),
+    ('jane', 'B', 12),
+    ('dave', 'B', 10),
+]
+
+sorted(students, key = lambda student: student[2])
+
+# 출력: [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+```
+예시와 같이 students 요소의 [2]항목을 기준으로 sorted 됐다. _( 10, 12, 15 순으로 )_
+
+### lambda  
+함수를 정의할 필요없이 사용하고 싶을 때 쓴다.  
+```
+lambda 매개변수 : 리턴값   #함수 정의와 같다.
+
+(lambda 매개변수 : 리턴값)(매개변수 값) #함수 정의 + 실행과 같다. 
+```
 
 ---
 ### 주의  
