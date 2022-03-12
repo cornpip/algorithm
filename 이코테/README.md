@@ -51,7 +51,17 @@ for key, val in a.items():
     print(key,value)
     # 키와 값 모두 사용가능
 ```
+### set 
++ 중복을 허용하지 않는다.
++ 순서가 없다.
++ 인덱싱 접근은 리스트나 튜플로 변환후에 가능하다.
+```
+aa = set([1,4,56,56,9,9,1,2,0,4])
+# {0, 1, 2, 4, 9, 56}
 
+bb = set("hello")
+# {'o', 'l', 'e', 'h'}
+```
 ### list method  
 `list.index(찾는 값) :` list에서 찾고자 하는 값과 일치하는 첫번째 index값 반환, 없으면 ValueError  
 `list.count(찾는 값) :` list에서 찾고자 하는 값의 개수를 반환, 없으면 0반환  
