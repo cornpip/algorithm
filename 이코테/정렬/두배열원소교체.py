@@ -1,6 +1,3 @@
-from audioop import reverse
-
-
 n, k = map(int, input().split())
 
 arr = []
