@@ -6,9 +6,9 @@ import simplytime as time
 
 # from 확인.simply import start, sleep, finish
 
-time.start()
+time.s()
 time.sleep(2)
-time.finish()
+time.f()
 
 # start()
 # sleep(2)
