@@ -13,6 +13,25 @@ import 순서
 상대 경로는 `ImportError: attempted relative import with no known parent package` err발생, 상위폴더의 경우 __main__을 기준으로 위치를 잡아서 실제 폴더구조를 근거하지 않는다고 함 그래서 경로로 import 불가  
 
 ---
+### sys.stdin.readline()
+_여러줄의 입력을 받아야 하는 경우가 아니라면 sys없이 input() 으로도 충분하다._  
+
+이렇게 받으면 개행문자 \n가 포함된체 받아진다.  
+ex) `"hi\n"`  
+그러나 split()하면 개행문자는 없는 취급된다.  
+
+문자열로 받을거면: 
+```
+sys.stdin.readline().rstrip()
+```  
+split 붙일거면: 
+```
+input = sys.stdin.readline 
+input().split()
+```
+이런 느낌으로 활용하면 된다.  
+rstrip()은 개행문자를 없애준다.  
+
 ### 삼항연산자
 on_true if 조건 else on_false  
 
