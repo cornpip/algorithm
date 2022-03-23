@@ -125,6 +125,25 @@ bb = set("hello")
 ---
 `if문` 이나 `for문`은 또다른 스코프를 형성하는게 아니라 그냥 해당스코프에서의 동작이다.  
 
+### 문자열 method
+양쪽 끝과 이어진 특정 문자들 삭제 _( 끝에서 떨어지면 삭제 안됨, 한 문자 단위로 삭제 )_
+```
+a = [1,2,3]
+
+b = a.strip("[]")
+print(b) # 1,2,3 
+```
+문자열 삭제/치환 _( 양쪽 끝과 무관하고 문자열 단위로 삭제/치환 )_
+```
+text = "ariaabc"
+
+text1 = text.strip("abc")
+print(text1) # ri
+
+text2 = text.replace("abc","")
+print(text2) # aria
+```
+둘 다 새로운 str으로 반환한다는 점을 주의하자. _( 원본은 그대로 )_
 ### Comprehension  
 한 Sequence가 다른 Sequence (Iterable Object)로부터 (변형되어) 구축될 수 있게한 기능이다.  
 + List Comprehension
