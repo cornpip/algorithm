@@ -5,6 +5,9 @@ input = sys.stdin.readline
 INF = int(1e9)
 T = int(input())
 
+
+dx = [1,-1,0,0]
+dy = [0,0,1,-1]
 for _ in range(T):
     n = int(input())
     geo = []
@@ -20,44 +23,18 @@ for _ in range(T):
         energy, now = heapq.heappop(heap)
         x, y = now[0], now[1]
         if result[x][y] < energy:
+            # 이게 아래에서 거르고 result에 값넣고 push하면
+            # 여기 걸릴 경우가 없다고 생각이드는데 일단 다익스트라 코드에서도 여기 조건 걸어놨으니까
+            # 안전으로 걸어는 두자
+
+            # 맨 첫 pop에서 같은 목적지 비용다른 경우 있다면 필요
             continue
-        result[x][y] = energy
-        if x == n-1 and y == n-1:
-            continue
-        if x == 0:
-            if y == 0:
-                heapq.heappush(heap, [energy + geo[x][y+1], [x,y+1]])
-                heapq.heappush(heap, [energy + geo[x+1][y], [x+1, y]])
-            elif y == n-1:
-                heapq.heappush(heap, [energy + geo[x][y-1], [x, y-1]])
-                heapq.heappush(heap, [energy + geo[x+1][y], [x+1, y]])
-            else:
-                heapq.heappush(heap, [energy + geo[x][y-1], [x, y-1]])
-                heapq.heappush(heap, [energy + geo[x][y+1], [x,y+1]])
-                heapq.heappush(heap, [energy + geo[x+1][y], [x+1, y]])
-        elif x == n-1:
-            if y == 0:
-                heapq.heappush(heap, [energy + geo[x][y+1], [x,y+1]])
-                heapq.heappush(heap, [energy + geo[x-1][y], [x-1,y]])
-            elif y == n-1:
-                heapq.heappush(heap, [energy + geo[x][y-1], [x, y-1]])
-                heapq.heappush(heap, [energy + geo[x-1][y], [x-1, y]])
-            else:
-                heapq.heappush(heap, [energy + geo[x][y-1], [x, y-1]])
-                heapq.heappush(heap, [energy + geo[x][y+1], [x,y+1]])
-                heapq.heappush(heap, [energy + geo[x-1][y], [x-1, y]])
-        elif y == 0:
-                heapq.heappush(heap, [energy + geo[x][y+1], [x, y+1]])
-                heapq.heappush(heap, [energy + geo[x+1][y], [x+1,y]])
-                heapq.heappush(heap, [energy + geo[x-1][y], [x-1, y]])
-        elif y == n-1:
-                heapq.heappush(heap, [energy + geo[x][y-1], [x, y-1]])
-                heapq.heappush(heap, [energy + geo[x+1][y], [x+1,y]])
-                heapq.heappush(heap, [energy + geo[x-1][y], [x-1, y]])
-        else:
-            heapq.heappush(heap, [energy + geo[x-1][y], [x-1,y]])
-            heapq.heappush(heap, [energy + geo[x][y+1], [x,y+1]])
-            heapq.heappush(heap, [energy + geo[x+1][y], [x+1, y]])
-            heapq.heappush(heap, [energy + geo[x][y-1], [x, y-1]])
+        for i in range(4):
+            nx, ny = x + dx[i], y + dy[i]
+            if -1 < nx < n and -1 < ny < n:
+                cost = energy + geo[nx][ny]
+                if (cost) < result[nx][ny]:
+                    result[nx][ny] = cost
+                    heapq.heappush(heap, [cost, [nx, ny]])  
 
     print(result[n-1][n-1])
