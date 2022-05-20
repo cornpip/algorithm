@@ -95,6 +95,7 @@ while 1:
                         n_steps.pop(i)
                         break
                 dead.append([data[0], data[4]])
+                sea_t[x][y] = move[:5]
             else:
                 dead.append([move[0], move[4]])
         else:
@@ -135,9 +136,11 @@ while 1:
     fishs = n_steps
     t += 1
     # print(n_steps)
+    # for i in range(n):
+    #     print(sea[i])
     if len(n_steps) < 2:
         break
-    elif t > 1000:
+    elif t >= 1000:
         t = -1
         break
 
