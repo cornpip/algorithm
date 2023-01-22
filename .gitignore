@@ -1,3 +1,7 @@
 test*.py
 nodecote/
 복습/
+
+build
+dist
+*.spec
