@@ -1,6 +1,7 @@
 test*.*
 nodecote/
 복습/
+*.class
 
 build
 dist
