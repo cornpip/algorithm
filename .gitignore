@@ -6,4 +6,4 @@ nodecote/
 build
 dist
 *.spec
-tt.js
+tt.*
